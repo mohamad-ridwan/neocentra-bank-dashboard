@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useStore, useDispatch, useSelector } from 'react-redux';
-import { useQuery } from '@tanstack/react-query';
-import { createSlice } from '@reduxjs/toolkit';
+import { useEffect, useState } from "react";
+import { useStore, useDispatch, useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState: { value: 0 },
   reducers: {
-    increment: (state) => { state.value += 1; },
-    decrement: (state) => { state.value -= 1; },
-  }
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
+  },
 });
 
 export const { increment, decrement } = counterSlice.actions;
@@ -24,21 +28,34 @@ export function useDashboard() {
 
   useEffect(() => {
     if (store && store.injectReducer) {
-      store.injectReducer('counter', counterSlice.reducer);
+      store.injectReducer("counter", counterSlice.reducer);
       setInjected(true);
     }
   }, [store]);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ['bankAccounts'],
+    queryKey: ["bankAccounts"],
     queryFn: async () => {
-      const { apiFetch } = await import('shared_remote/apiHelper');
+      const { apiFetch } = await import("shared_remote/apiHelper");
+      const hostApiUrl = process.env.NEXT_PUBLIC_HOST_API_URL || "http://localhost:3341";
       return apiFetch<{
-        stats: { totalAccounts: number; activeAccounts: number; blockedAccounts: number; pendingKyc: number };
-        accounts: Array<{ id: string; name: string; accountNumber: string; type: string; status: string; balance: number }>;
-      }>('/api/accounts');
+        stats: {
+          totalAccounts: number;
+          activeAccounts: number;
+          blockedAccounts: number;
+          pendingKyc: number;
+        };
+        accounts: Array<{
+          id: string;
+          name: string;
+          accountNumber: string;
+          type: string;
+          status: string;
+          balance: number;
+        }>;
+      }>(`${hostApiUrl}/api/accounts`);
     },
-    enabled: typeof window !== 'undefined',
+    enabled: typeof window !== "undefined",
   });
 
   const handleIncrement = () => {

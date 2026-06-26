@@ -1,7 +1,11 @@
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
+const path = require('path');
 
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    externalDir: true,
+  },
   webpack(config, options) {
     if (!options.isServer) {
       config.plugins.push(
@@ -26,17 +30,17 @@ module.exports = {
         })
       );
     } else {
-      config.externals = [
-        ...(config.externals || []),
-        {
-          'shared_remote/store': 'commonjs shared_remote/store',
-          'shared_remote/Button': 'commonjs shared_remote/Button',
-          'shared_remote/Input': 'commonjs shared_remote/Input',
-          'shared_remote/apiHelper': 'commonjs shared_remote/apiHelper',
-          'shared_remote/AuthWrapper': 'commonjs shared_remote/AuthWrapper',
-          'shared_remote/Tooltip': 'commonjs shared_remote/Tooltip',
-        }
-      ];
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'shared_remote/store': path.resolve(__dirname, '../neocentra-bank-shared/src/store/index.ts'),
+        'shared_remote/Button': path.resolve(__dirname, '../neocentra-bank-shared/src/components/ui/button.tsx'),
+        'shared_remote/Input': path.resolve(__dirname, '../neocentra-bank-shared/src/components/ui/input.tsx'),
+        'shared_remote/apiHelper': path.resolve(__dirname, '../neocentra-bank-shared/src/utils/apiHelper.ts'),
+        'shared_remote/AuthWrapper': path.resolve(__dirname, '../neocentra-bank-shared/src/components/AuthWrapper.tsx'),
+        'shared_remote/Tooltip': path.resolve(__dirname, '../neocentra-bank-shared/src/components/ui/tooltip.tsx'),
+        'shared_remote/useRemoteCSS': path.resolve(__dirname, '../neocentra-bank-shared/src/hooks/useRemoteCSS.ts'),
+        'shared_remote/federatedStats': path.resolve(__dirname, '../neocentra-bank-shared/src/utils/federated-stats.ts'),
+      };
     }
     return config;
   },

@@ -1,8 +1,10 @@
+const isDev = process.env.NODE_ENV === "development";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "../neocentra-bank-shared/src/**/*.{js,ts,jsx,tsx}",
+    ...(isDev ? ["../neocentra-bank-shared/src/**/*.{js,ts,jsx,tsx}"] : []),
   ],
   theme: {
     extend: {
@@ -41,11 +43,11 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          navy: '#0F172A',
-          gold: '#D97706',
-          teal: '#0D9488',
-          accent: '#4F46E5',
-        }
+          navy: "#0F172A",
+          gold: "#D97706",
+          teal: "#0D9488",
+          accent: "#4F46E5",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -55,4 +57,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
