@@ -40,6 +40,9 @@ module.exports = {
         'shared_remote/Tooltip': path.resolve(__dirname, '../neocentra-bank-shared/src/components/ui/tooltip.tsx'),
         'shared_remote/useRemoteCSS': path.resolve(__dirname, '../neocentra-bank-shared/src/hooks/useRemoteCSS.ts'),
         'shared_remote/federatedStats': path.resolve(__dirname, '../neocentra-bank-shared/src/utils/federated-stats.ts'),
+        'shared_remote/Skeleton': path.resolve(__dirname, '../neocentra-bank-shared/src/components/ui/skeleton.tsx'),
+        'shared_remote/LayoutSkeleton': path.resolve(__dirname, '../neocentra-bank-shared/src/components/LayoutSkeleton.tsx'),
+        'shared_remote/DashboardSkeleton': path.resolve(__dirname, '../neocentra-bank-shared/src/components/DashboardSkeleton.tsx'),
       };
     }
     return config;
