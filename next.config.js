@@ -17,7 +17,6 @@ module.exports = {
           },
           exposes: {
             './Dashboard': './src/components/Dashboard/index.tsx',
-            './DashboardSkeleton': './src/components/loaders/DashboardSkeleton.tsx',
           },
           shared: {
             react: { singleton: true, requiredVersion: false },

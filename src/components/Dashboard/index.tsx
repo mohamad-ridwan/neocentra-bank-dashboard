@@ -1,29 +1,12 @@
-import React from 'react';
-import { useDashboard } from './useDashboard';
-import { DashboardView } from './DashboardView';
+import React, { Suspense, lazy } from 'react';
+import DashboardSkeleton from '../loaders/DashboardSkeleton';
+
+const DashboardViewWrapper = lazy(() => import('./DashboardViewWrapper'));
 
 export default function DashboardContainer() {
-  const {
-    counterValue,
-    auth,
-    injected,
-    data,
-    isLoading,
-    error,
-    handleIncrement,
-    handleDecrement,
-  } = useDashboard();
-
   return (
-    <DashboardView
-      counterValue={counterValue}
-      auth={auth}
-      injected={injected}
-      data={data}
-      isLoading={isLoading}
-      error={error}
-      onIncrement={handleIncrement}
-      onDecrement={handleDecrement}
-    />
+    <Suspense fallback={<DashboardSkeleton />}>
+      <DashboardViewWrapper />
+    </Suspense>
   );
 }
