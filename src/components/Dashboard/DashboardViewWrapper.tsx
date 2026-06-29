@@ -11,6 +11,7 @@ export default function DashboardViewWrapper() {
     data,
     isLoading,
     error,
+    refetch,
     handleIncrement,
     handleDecrement,
   } = useDashboard();
@@ -27,6 +28,7 @@ export default function DashboardViewWrapper() {
       data={data}
       isLoading={isLoading}
       error={error}
+      refetch={refetch}
       onIncrement={handleIncrement}
       onDecrement={handleDecrement}
     />

@@ -33,11 +33,12 @@ export function useDashboard() {
     }
   }, [store]);
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["bankAccounts"],
     queryFn: async () => {
       const { apiFetch } = await import("shared_remote/apiHelper");
-      const hostApiUrl = process.env.NEXT_PUBLIC_HOST_API_URL || "http://localhost:3341";
+      const hostApiUrl =
+        process.env.NEXT_PUBLIC_HOST_API_URL || "http://localhost:3341";
       return apiFetch<{
         stats: {
           totalAccounts: number;
@@ -73,6 +74,7 @@ export function useDashboard() {
     data,
     isLoading,
     error,
+    refetch,
     handleIncrement,
     handleDecrement,
   };
