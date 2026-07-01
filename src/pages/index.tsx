@@ -1,11 +1,7 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-
-const DashboardStandaloneContainer = dynamic(
-  () => import('../components/DashboardStandaloneContainer'),
-  { ssr: false }
-);
+import DashboardContainer from '../components/Dashboard';
 
 export default function StandaloneDashboardPage() {
-  return <DashboardStandaloneContainer />;
+  return <DashboardContainer />;
 }
+
