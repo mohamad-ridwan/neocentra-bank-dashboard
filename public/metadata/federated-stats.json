@@ -1,0 +1,27 @@
+{
+  "sharedModules": [],
+  "federatedModules": [
+    {
+      "remote": "dashboard_remote",
+      "entry": "static/chunks/remoteEntry.js",
+      "sharedModules": [],
+      "exposes": {
+        "./Dashboard": [
+          "static/chunks/__federation_expose_Dashboard.e3e9ce63333783d1.js"
+        ]
+      },
+      "remoteModules": {
+        "shared_remote/useRemoteCSS": 7416,
+        "shared_remote/Skeleton": 2129,
+        "shared_remote/store": 4143,
+        "shared_remote/apiHelper": 5884,
+        "shared_remote/Button": 7520,
+        "shared_remote/Input": 2040,
+        "shared_remote/Tooltip": 2634
+      }
+    }
+  ],
+  "globalCSS": [
+    "/mf-dashboard/styles/dashboard-tailwind.css"
+  ]
+}
