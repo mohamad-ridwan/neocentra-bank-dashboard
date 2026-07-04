@@ -73,7 +73,7 @@ export function DashboardView({
         <div className="flex items-center gap-2 text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl text-slate-300">
           <Sparkles className="w-4 h-4 text-teal-400 animate-pulse" />
           <span>
-            MFE Architecture: Shell & Remote Shared [Dashboard v1.1.9]
+            MFE Architecture: Shell & Remote Shared [Dashboard v1.1.10]
           </span>
         </div>
       </div>
