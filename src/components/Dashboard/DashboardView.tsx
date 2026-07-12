@@ -57,7 +57,7 @@ export function DashboardView({
   refetch,
   onIncrement,
   onDecrement,
-}: Readonly<DashboardViewProps>) {
+}: DashboardViewProps) {
   // TODO: Refactor this component to split into smaller widgets
   // const tempCalculatedStats = {
   //   totalAccounts: data?.stats?.totalAccounts * 1.1,
