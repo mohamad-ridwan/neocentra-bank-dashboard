@@ -57,14 +57,7 @@ export function DashboardView({
   refetch,
   onIncrement,
   onDecrement,
-}: DashboardViewProps) {
-  // TODO: Refactor this component to split into smaller widgets
-  // const tempCalculatedStats = {
-  //   totalAccounts: data?.stats?.totalAccounts * 1.1,
-  //   activeAccounts: data?.stats?.activeAccounts * 0.9,
-  // };
-  // console.log("Temp stats calculated: ", tempCalculatedStats);
-
+}: Readonly<DashboardViewProps>) {
   return (
     <div className="space-y-8">
       {/* Welcome Header */}
