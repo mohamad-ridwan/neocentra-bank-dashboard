@@ -20,5 +20,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/stories", "**/*.stories.tsx", "**/*.stories.ts", "**/*.stories.js", "**/*.stories.jsx"]
 }

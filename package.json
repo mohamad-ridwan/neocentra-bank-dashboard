@@ -8,7 +8,9 @@
     "start": "NEXT_PRIVATE_LOCAL_WEBPACK=true next start -p 3344",
     "lint": "next lint",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.3.3",
@@ -43,7 +45,13 @@
     "typescript": "^5.4.5",
     "vitest": "^4.1.9",
     "vitest-axe": "^0.1.0",
-    "webpack": "^5.91.0"
+    "webpack": "^5.91.0",
+    "storybook": "^10.5.0",
+    "@storybook/nextjs": "^10.5.0",
+    "@storybook/addon-a11y": "^10.5.0",
+    "@storybook/addon-docs": "^10.5.0",
+    "@storybook/addon-onboarding": "^10.5.0",
+    "eslint-plugin-storybook": "^10.5.0"
   },
   "overrides": {
     "enhanced-resolve": "5.16.0"
